@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEKU - Nhiếp ảnh gia chuyên nghiệp</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#800080", secondary: "#ff4d4d" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+      :root {
+        --primary-color: #800080;
+        --secondary-color: #ff4d4d;
+        --dark-bg: #1a1a1a;
+        --light-text: #f5f5f5;
+        --gray-text: #b3b3b3;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+      }
+      .gradient-text {
+        background: linear-gradient(
+          to right,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          to right,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+      }
+      .gradient-border {
+        border-image: linear-gradient(
+            to right,
+            var(--secondary-color),
+            var(--primary-color)
+          )
+          1;
+      }
+      .slide {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .slide.active {
+        opacity: 1;
+      }
+      .dot {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: var(--gray-text);
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .dot.active {
+        background: linear-gradient(
+          to right,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+      }
+      .portfolio-item {
+        overflow: hidden;
+        position: relative;
+        opacity: 1;
+        transform: scale(1);
+        transition: all 0.5s ease-in-out;
+      }
+      .portfolio-item.hidden-item {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      .portfolio-item img {
+        transition: transform 0.5s ease;
+      }
+      .portfolio-item:hover img {
+        transform: scale(1.05);
+      }
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .animate-fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .animate-fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .testimonial-slide {
+        display: none;
+      }
+      .testimonial-slide.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .instagram-item {
+        position: relative;
+        overflow: hidden;
+      }
+      .instagram-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .instagram-item:hover .instagram-overlay {
+        opacity: 1;
+      }
+      .instagram-item:hover img {
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+      }
+      .sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        transition: background-color 0.3s ease;
+      }
+      .sticky-header.scrolled {
+        background-color: rgba(26, 26, 26, 0.95);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .menu-item {
+        position: relative;
+      }
+      .menu-item::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        transition: width 0.3s ease;
+      }
+      .menu-item:hover::after,
+      .menu-item.active::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-img" src="" alt="Lightbox image" />
+    </div>
+    <header class="sticky-header py-4 px-6 md:px-12">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-3xl font-['Pacifico'] gradient-text">PEKU</a>
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="menu-item text-white hover:text-gray-300 transition-colors duration-300"
+            >Trang chủ</a
+          >
+          <a
+            href="#about"
+            class="menu-item text-white hover:text-gray-300 transition-colors duration-300"
+            >Giới thiệu</a
+          >
+          <a
+            href="#portfolio"
+            class="menu-item text-white hover:text-gray-300 transition-colors duration-300"
+            >Bộ sưu tập</a
+          >
+          <a
+            href="#testimonials"
+            class="menu-item text-white hover:text-gray-300 transition-colors duration-300"
+            >Đánh giá</a
+          >
+          <a
+            href="#contact"
+            class="menu-item text-white hover:text-gray-300 transition-colors duration-300"
+            >Liên hệ</a
+          >
+        </nav>
+        <div
+          class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer"
+          id="mobile-menu-button"
+        >
+          <i class="ri-menu-line ri-2x"></i>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-16 left-0 w-full bg-[#1a1a1a] border-t border-gray-800 py-4 px-6 z-50"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+            >Trang chủ</a
+          >
+          <a
+            href="#about"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+            >Giới thiệu</a
+          >
+          <a
+            href="#portfolio"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+            >Bộ sưu tập</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+            >Đánh giá</a
+          >
+          <a
+            href="#contact"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+            >Liên hệ</a
+          >
+        </div>
+      </div>
+    </header>
+    <section
+      id="home"
+      class="min-h-screen flex items-center py-20 px-6 md:px-12"
+    >
+      <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-fade-in">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            Xin chào, tôi là <span class="gradient-text">Piku</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl text-gray-300 mb-8">
+            Nhiếp ảnh gia chuyên nghiệp
+          </h2>
+          <p class="text-gray-400 mb-8 max-w-lg">
+            Tôi chuyên chụp ảnh cưới, phong cảnh và sự kiện với hơn 17 năm kinh
+            nghiệm. Mỗi bức ảnh là một câu chuyện, và tôi muốn kể câu chuyện của
+            bạn qua ống kính của mình.
+          </p>
+          <div class="flex flex-wrap gap-8 mb-10">
+            <div>
+              <h3 class="text-3xl font-bold gradient-text">200+</h3>
+              <p class="text-gray-400">Dự án hoàn thành</p>
+            </div>
+            <div>
+              <h3 class="text-3xl font-bold gradient-text">17+</h3>
+              <p class="text-gray-400">Năm kinh nghiệm</p>
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="inline-block gradient-bg text-white py-3 px-8 rounded-button font-medium transition-transform duration-300 hover:shadow-lg hover:scale-105 whitespace-nowrap"
+            >Liên hệ ngay</a
+          >
+        </div>
+        <div class="relative animate-fade-in">
+          <div class="relative w-full max-w-md mx-auto">
+            <div
+              class="absolute inset-0 gradient-bg opacity-20 blur-xl rounded-full"
+            ></div>
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20male%20photographer%20in%20his%2030s%2C%20Asian%2C%20holding%20a%20camera%2C%20portrait%20photo%2C%20dark%20background%20with%20purple%20and%20red%20lighting%2C%20high%20quality%2C%20professional%20photo%2C%20dramatic%20lighting&width=600&height=800&seq=1&orientation=portrait"
+              alt="Piku - Nhiếp ảnh gia"
+              class="relative z-10 w-full h-auto rounded-2xl object-cover object-top shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="py-20 px-6 md:px-12 bg-[#222]">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Dịch vụ nhiếp ảnh <span class="gradient-text">chuyên nghiệp</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Với trang thiết bị hiện đại và kỹ thuật chụp ảnh tiên tiến, tôi cam
+            kết mang đến những khoảnh khắc đẹp nhất trong cuộc sống của bạn.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="animate-fade-in">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20photography%20equipment%20setup%20in%20a%20studio%2C%20camera%2C%20tripod%2C%20lighting%20equipment%2C%20lenses%2C%20dark%20background%20with%20purple%20and%20red%20accent%20lighting%2C%20high%20quality%2C%20dramatic%20lighting&width=600&height=400&seq=2&orientation=landscape"
+              alt="Dịch vụ nhiếp ảnh"
+              class="w-full h-auto rounded-xl shadow-xl"
+            />
+          </div>
+          <div class="animate-fade-in">
+            <h3 class="text-2xl font-semibold mb-6">
+              Chúng tôi cung cấp dịch vụ chụp ảnh đa dạng
+            </h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-camera-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-2">Chụp ảnh cưới</h4>
+                  <p class="text-gray-400">
+                    Lưu giữ khoảnh khắc hạnh phúc nhất trong ngày trọng đại của
+                    bạn với phong cách độc đáo và sáng tạo.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-video-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-2">Quay phim cưới</h4>
+                  <p class="text-gray-400">
+                    Ghi lại từng khoảnh khắc xúc động trong ngày cưới của bạn
+                    với chất lượng hình ảnh 4K sắc nét.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-image-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-2">Chụp ảnh sự kiện</h4>
+                  <p class="text-gray-400">
+                    Ghi lại những khoảnh khắc quan trọng trong các sự kiện đặc
+                    biệt của cá nhân và doanh nghiệp.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a
+              href="#portfolio"
+              class="inline-block gradient-bg text-white py-3 px-8 rounded-button font-medium mt-8 transition-transform duration-300 hover:shadow-lg hover:scale-105 whitespace-nowrap"
+              >Xem bộ sưu tập</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio" class="py-20 px-6 md:px-12">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Bộ sưu tập <span class="gradient-text">nổi bật</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Khám phá những tác phẩm tiêu biểu của tôi qua các chủ đề đa dạng.
+          </p>
+        </div>
+        <div class="mb-10 animate-fade-in">
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button
+              class="portfolio-filter active py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="all"
+            >
+              Tất cả
+            </button>
+            <button
+              class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="wedding"
+            >
+              Ảnh cưới
+            </button>
+            <button
+              class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="event"
+            >
+              Sự kiện
+            </button>
+            <button
+              class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="portrait"
+            >
+              Chân dung
+            </button>
+            <button
+              class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="landscape"
+            >
+              Phong cảnh
+            </button>
+            <button
+              class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+              data-filter="culture"
+            >
+              Văn hóa
+            </button>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in"
+        >
+          <div class="portfolio-item" data-category="wedding">
+            <img
+              src="https://readdy.ai/api/search-image?query=beautiful%20wedding%20photography%2C%20elegant%20couple%20in%20traditional%20Vietnamese%20wedding%20attire%2C%20romantic%20moment%2C%20professional%20photography%2C%20dark%20background%20with%20purple%20and%20red%20accent%20lighting&width=600&height=400&seq=3&orientation=landscape"
+              alt="Ảnh cưới"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="event">
+            <img
+              src="https://readdy.ai/api/search-image?query=corporate%20event%20photography%2C%20business%20conference%2C%20professional%20setting%2C%20people%20networking%2C%20high%20quality%20photography%2C%20dark%20background%20with%20subtle%20lighting&width=600&height=400&seq=4&orientation=landscape"
+              alt="Sự kiện"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="portrait">
+            <img
+              src="https://readdy.ai/api/search-image?query=artistic%20portrait%20photography%2C%20beautiful%20Vietnamese%20woman%2C%20dramatic%20lighting%2C%20professional%20studio%20portrait%2C%20dark%20background%20with%20purple%20accent%20lighting&width=600&height=400&seq=5&orientation=landscape"
+              alt="Chân dung"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="landscape">
+            <img
+              src="https://readdy.ai/api/search-image?query=breathtaking%20Vietnamese%20landscape%20photography%2C%20Ha%20Long%20Bay%20at%20sunset%2C%20dramatic%20sky%2C%20professional%20photography%20with%20vibrant%20colors&width=600&height=400&seq=6&orientation=landscape"
+              alt="Phong cảnh"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="culture">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20cultural%20photography%2C%20traditional%20festival%2C%20colorful%20costumes%2C%20people%20celebrating%2C%20professional%20documentary%20photography&width=600&height=400&seq=7&orientation=landscape"
+              alt="Văn hóa"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="wedding">
+            <img
+              src="https://readdy.ai/api/search-image?query=modern%20Vietnamese%20wedding%20photography%2C%20stylish%20couple%2C%20outdoor%20wedding%20ceremony%2C%20professional%20photography%20with%20artistic%20composition&width=600&height=400&seq=8&orientation=landscape"
+              alt="Ảnh cưới hiện đại"
+              class="w-full h-64 object-cover object-top rounded-lg"
+            />
+            <div class="portfolio-overlay rounded-lg">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+              >
+                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="slideshow" class="py-20 px-6 md:px-12 bg-[#222]">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Bộ sưu tập <span class="gradient-text">ảnh cưới</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Những khoảnh khắc đẹp nhất trong ngày trọng đại của các cặp đôi.
+          </p>
+        </div>
+        <div
+          class="relative h-[500px] max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl animate-fade-in"
+        >
+          <div class="slide active">
+            <img
+              src="https://readdy.ai/api/search-image?query=romantic%20Vietnamese%20wedding%20photography%2C%20couple%20in%20traditional%20ao%20dai%2C%20beautiful%20garden%20setting%2C%20professional%20photography%20with%20soft%20lighting&width=1000&height=600&seq=9&orientation=landscape"
+              alt="Ảnh cưới 1"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://readdy.ai/api/search-image?query=elegant%20Vietnamese%20wedding%20photography%2C%20couple%20in%20western%20wedding%20attire%2C%20luxury%20venue%2C%20professional%20photography%20with%20dramatic%20lighting&width=1000&height=600&seq=10&orientation=landscape"
+              alt="Ảnh cưới 2"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://readdy.ai/api/search-image?query=artistic%20Vietnamese%20pre-wedding%20photography%2C%20couple%20in%20stylish%20outfits%2C%20urban%20setting%2C%20professional%20photography%20with%20creative%20composition&width=1000&height=600&seq=11&orientation=landscape"
+              alt="Ảnh cưới 3"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://readdy.ai/api/search-image?query=emotional%20Vietnamese%20wedding%20ceremony%20photography%2C%20couple%20exchanging%20vows%2C%20intimate%20moment%2C%20professional%20photography%20with%20natural%20lighting&width=1000&height=600&seq=12&orientation=landscape"
+              alt="Ảnh cưới 4"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+          <button
+            class="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-300"
+            id="prev-slide"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <button
+            class="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-300"
+            id="next-slide"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+        <div class="flex justify-center mt-6">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="py-20 px-6 md:px-12">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Bảng giá <span class="gradient-text">dịch vụ</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Chọn gói dịch vụ phù hợp với nhu cầu của bạn.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800 transition-transform duration-300 hover:transform hover:scale-105 animate-fade-in"
+          >
+            <h3 class="text-xl font-semibold mb-2">Gói Cơ Bản</h3>
+            <div class="text-3xl font-bold mb-6">
+              <span class="gradient-text">$200</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>2 giờ chụp ảnh</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>50 ảnh đã chỉnh sửa</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>1 địa điểm</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Bàn giao file kỹ thuật số</span>
+              </li>
+              <li class="flex items-center text-gray-500">
+                <i class="ri-close-line ri-lg mr-2"></i>
+                <span>Chỉnh sửa nâng cao</span>
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 px-6 rounded-button border border-gray-600 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+            >
+              Đặt lịch ngay
+            </button>
+          </div>
+          <div
+            class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800 transform scale-105 relative animate-fade-in"
+          >
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 gradient-bg text-white text-sm py-1 px-4 rounded-full"
+            >
+              Phổ biến nhất
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Gói Tiêu Chuẩn</h3>
+            <div class="text-3xl font-bold mb-6">
+              <span class="gradient-text">$350</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>4 giờ chụp ảnh</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>100 ảnh đã chỉnh sửa</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>2 địa điểm</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Bàn giao file kỹ thuật số</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Chỉnh sửa nâng cao</span>
+              </li>
+            </ul>
+            <button
+              class="w-full gradient-bg py-3 px-6 rounded-button text-white hover:shadow-lg transition-all duration-300 whitespace-nowrap"
+            >
+              Đặt lịch ngay
+            </button>
+          </div>
+          <div
+            class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800 transition-transform duration-300 hover:transform hover:scale-105 animate-fade-in"
+          >
+            <h3 class="text-xl font-semibold mb-2">Gói Cao Cấp</h3>
+            <div class="text-3xl font-bold mb-6">
+              <span class="gradient-text">$500</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Cả ngày chụp ảnh (8 giờ)</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>200 ảnh đã chỉnh sửa</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Không giới hạn địa điểm</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Album ảnh cao cấp</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line ri-lg text-green-500 mr-2"></i>
+                <span>Chỉnh sửa nâng cao</span>
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 px-6 rounded-button border border-gray-600 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
+            >
+              Đặt lịch ngay
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="instagram" class="py-20 px-6 md:px-12 bg-[#222]">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Theo dõi tôi trên <span class="gradient-text">Instagram</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Cập nhật những tác phẩm mới nhất của tôi trên Instagram.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=artistic%20portrait%20photography%2C%20Vietnamese%20model%2C%20studio%20lighting%2C%20professional%20photography%20with%20creative%20composition&width=600&height=600&seq=13&orientation=squarish"
+              alt="Instagram 1"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20street%20photography%2C%20urban%20life%2C%20candid%20moment%2C%20professional%20documentary%20photography&width=600&height=600&seq=14&orientation=squarish"
+              alt="Instagram 2"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20food%20photography%2C%20traditional%20cuisine%2C%20artistic%20composition%2C%20professional%20food%20photography&width=600&height=600&seq=15&orientation=squarish"
+              alt="Instagram 3"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20architecture%20photography%2C%20ancient%20temple%2C%20dramatic%20lighting%2C%20professional%20architectural%20photography&width=600&height=600&seq=16&orientation=squarish"
+              alt="Instagram 4"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20nature%20photography%2C%20rice%20terraces%2C%20sunset%2C%20professional%20landscape%20photography&width=600&height=600&seq=17&orientation=squarish"
+              alt="Instagram 5"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="instagram-item rounded-lg overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=Vietnamese%20festival%20photography%2C%20traditional%20celebration%2C%20colorful%20costumes%2C%20professional%20event%20photography&width=600&height=600&seq=18&orientation=squarish"
+              alt="Instagram 6"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="instagram-overlay">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
+              >
+                <i class="ri-instagram-line ri-lg text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-10 animate-fade-in">
+          <a
+            href="#"
+            class="inline-flex items-center text-white hover:text-primary transition-colors duration-300"
+          >
+            <span class="mr-2">Xem thêm trên Instagram</span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="testimonials" class="py-20 px-6 md:px-12">
+      <div class="container mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Khách hàng <span class="gradient-text">nói gì</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Những đánh giá từ khách hàng đã sử dụng dịch vụ của tôi.
+          </p>
+        </div>
+        <div class="relative max-w-3xl mx-auto animate-fade-in">
+          <div class="testimonial-slide active">
+            <div class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800">
+              <div class="flex items-center mb-6">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20Vietnamese%20woman%20in%20her%2030s%2C%20smiling%2C%20business%20attire%2C%20neutral%20background&width=200&height=200&seq=19&orientation=squarish"
+                  alt="Nguyễn Thị Mai"
+                  class="w-16 h-16 rounded-full object-cover object-top mr-4"
+                />
+                <div>
+                  <h4 class="text-lg font-medium">Nguyễn Thị Mai</h4>
+                  <p class="text-gray-400">Đám cưới - Hà Nội</p>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">
+                "Piku đã ghi lại những khoảnh khắc tuyệt vời nhất trong ngày
+                cưới của chúng tôi. Anh ấy không chỉ là một nhiếp ảnh gia tài
+                năng mà còn rất chuyên nghiệp và dễ mến. Những bức ảnh cưới của
+                chúng tôi đẹp hơn cả mong đợi. Chúng tôi sẽ luôn trân trọng
+                những kỷ niệm mà anh ấy đã ghi lại."
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800">
+              <div class="flex items-center mb-6">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20Vietnamese%20man%20in%20his%2040s%2C%20smiling%2C%20business%20casual%20attire%2C%20neutral%20background&width=200&height=200&seq=20&orientation=squarish"
+                  alt="Trần Văn Hùng"
+                  class="w-16 h-16 rounded-full object-cover object-top mr-4"
+                />
+                <div>
+                  <h4 class="text-lg font-medium">Trần Văn Hùng</h4>
+                  <p class="text-gray-400">Sự kiện công ty - TP.HCM</p>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">
+                "Chúng tôi đã thuê Piku chụp ảnh cho sự kiện kỷ niệm 10 năm
+                thành lập công ty. Anh ấy đã làm việc rất chuyên nghiệp và ghi
+                lại được những khoảnh khắc quan trọng nhất của sự kiện. Chất
+                lượng ảnh tuyệt vời và được giao đúng hẹn. Chắc chắn sẽ hợp tác
+                lại trong các sự kiện tiếp theo!"
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800">
+              <div class="flex items-center mb-6">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20Vietnamese%20woman%20in%20her%2020s%2C%20smiling%2C%20casual%20stylish%20outfit%2C%20neutral%20background&width=200&height=200&seq=21&orientation=squarish"
+                  alt="Lê Thị Hương"
+                  class="w-16 h-16 rounded-full object-cover object-top mr-4"
+                />
+                <div>
+                  <h4 class="text-lg font-medium">Lê Thị Hương</h4>
+                  <p class="text-gray-400">Chụp ảnh cá nhân - Đà Nẵng</p>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-fill text-yellow-500"></i>
+                  <i class="ri-star-half-fill text-yellow-500"></i>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">
+                "Tôi rất hài lòng với buổi chụp ảnh cá nhân cùng Piku. Anh ấy có
+                khả năng làm cho tôi cảm thấy thoải mái trước ống kính và nắm
+                bắt được những khoảnh khắc tự nhiên nhất. Những bức ảnh rất đẹp
+                và tôi đã nhận được rất nhiều lời khen khi đăng lên mạng xã hội.
+                Sẽ quay lại chụp ảnh với Piku trong tương lai!"
+              </p>
+            </div>
+          </div>
+          <button
+            class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-12 w-10 h-10 flex items-center justify-center bg-[#2a2a2a] rounded-full text-white hover:gradient-bg transition-all duration-300 hidden md:flex"
+            id="prev-testimonial"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <button
+            class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-12 w-10 h-10 flex items-center justify-center bg-[#2a2a2a] rounded-full text-white hover:gradient-bg transition-all duration-300 hidden md:flex"
+            id="next-testimonial"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+        <div class="flex justify-center mt-6">
+          <span
+            class="w-3 h-3 rounded-full bg-gray-600 mx-1 cursor-pointer testimonial-dot active"
+            data-index="0"
+          ></span>
+          <span
+            class="w-3 h-3 rounded-full bg-gray-600 mx-1 cursor-pointer testimonial-dot"
+            data-index="1"
+          ></span>
+          <span
+            class="w-3 h-3 rounded-full bg-gray-600 mx-1 cursor-pointer testimonial-dot"
+            data-index="2"
+          ></span>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-20 px-6 md:px-12 bg-[#222]">
+      <div class="container mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              Liên hệ <span class="gradient-text">với tôi</span>
+            </h2>
+            <p class="text-gray-400 mb-8">
+              Hãy liên hệ với tôi để biết thêm thông tin về dịch vụ hoặc đặt
+              lịch chụp ảnh.
+            </p>
+            <div class="space-y-6 mb-8">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-map-pin-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-1">Địa chỉ</h4>
+                  <p class="text-gray-400">123 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-mail-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-1">Email</h4>
+                  <p class="text-gray-400">info@pikuphotography.com</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center gradient-bg rounded-full mr-4 flex-shrink-0"
+                >
+                  <i class="ri-phone-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium mb-1">Điện thoại</h4>
+                  <p class="text-gray-400">+84 123 456 789</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-white hover:gradient-bg transition-all duration-300"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-white hover:gradient-bg transition-all duration-300"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-white hover:gradient-bg transition-all duration-300"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-white hover:gradient-bg transition-all duration-300"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div class="animate-fade-in">
+            <form class="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800">
+              <div class="mb-6">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-400 mb-2"
+                  >Họ và tên</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full bg-[#333] border-none rounded p-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Nhập họ và tên của bạn"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-400 mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full bg-[#333] border-none rounded p-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Nhập địa chỉ email của bạn"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="service"
+                  class="block text-sm font-medium text-gray-400 mb-2"
+                  >Dịch vụ</label
+                >
+                <div class="relative">
+                  <select
+                    id="service"
+                    class="w-full bg-[#333] border-none rounded p-3 text-white focus:outline-none focus:ring-2 focus:ring-primary appearance-none pr-8"
+                  >
+                    <option value="">Chọn dịch vụ</option>
+                    <option value="wedding">Chụp ảnh cưới</option>
+                    <option value="event">Chụp ảnh sự kiện</option>
+                    <option value="portrait">Chụp ảnh chân dung</option>
+                    <option value="product">Chụp ảnh sản phẩm</option>
+                  </select>
+                  <div
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                  >
+                    <i class="ri-arrow-down-s-line text-gray-400"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-400 mb-2"
+                  >Tin nhắn</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full bg-[#333] border-none rounded p-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Nhập tin nhắn của bạn"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full gradient-bg py-3 px-6 rounded-button text-white hover:shadow-lg transition-all duration-300 whitespace-nowrap"
+              >
+                Gửi tin nhắn
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-12 px-6 md:px-12 border-t border-gray-800">
+      <div class="container mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <a
+              href="#"
+              class="text-3xl font-['Pacifico'] gradient-text mb-4 inline-block"
+              >PEKU</a
+            >
+            <p class="text-gray-400 mb-6">
+              Chuyên cung cấp dịch vụ chụp ảnh chuyên nghiệp với hơn 17 năm kinh
+              nghiệm.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-medium mb-4">Dịch vụ</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Chụp ảnh cưới</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Quay phim cưới</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Chụp ảnh sự kiện</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Chụp ảnh chân dung</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Chụp ảnh sản phẩm</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-medium mb-4">Liên kết</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Trang chủ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Giới thiệu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Bộ sưu tập</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Bảng giá</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-medium mb-4">Liên hệ</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="ri-map-pin-line mr-2 mt-1"></i>
+                <span class="text-gray-400"
+                  >123 Nguyễn Huệ, Quận 1, TP.HCM</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="ri-mail-line mr-2 mt-1"></i>
+                <span class="text-gray-400">info@pikuphotography.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-phone-line mr-2 mt-1"></i>
+                <span class="text-gray-400">+84 123 456 789</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-time-line mr-2 mt-1"></i>
+                <span class="text-gray-400">Thứ 2 - Thứ 7: 9:00 - 18:00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 PEKU. Tất cả các quyền được bảo lưu.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >Điều khoản sử dụng</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >Chính sách bảo mật</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script id="mobileMenuScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+    <script id="stickyHeaderScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector(".sticky-header");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+    <script id="slideshowScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+        const prevButton = document.getElementById("prev-slide");
+        const nextButton = document.getElementById("next-slide");
+        let currentSlide = 0;
+        let slideInterval;
+        function showSlide(n) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          dots.forEach((dot) => dot.classList.remove("active"));
+          currentSlide = (n + slides.length) % slides.length;
+          slides[currentSlide].classList.add("active");
+          dots[currentSlide].classList.add("active");
+        }
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+        }
+        function startSlideshow() {
+          slideInterval = setInterval(nextSlide, 3000);
+        }
+        function stopSlideshow() {
+          clearInterval(slideInterval);
+        }
+        // Event listeners
+        prevButton.addEventListener("click", function () {
+          prevSlide();
+          stopSlideshow();
+          startSlideshow();
+        });
+        nextButton.addEventListener("click", function () {
+          nextSlide();
+          stopSlideshow();
+          startSlideshow();
+        });
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", function () {
+            showSlide(index);
+            stopSlideshow();
+            startSlideshow();
+          });
+        });
+        // Start slideshow
+        startSlideshow();
+      });
+    </script>
+    <script id="testimonialScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const testimonials = document.querySelectorAll(".testimonial-slide");
+        const dots = document.querySelectorAll(".testimonial-dot");
+        const prevButton = document.getElementById("prev-testimonial");
+        const nextButton = document.getElementById("next-testimonial");
+        let currentTestimonial = 0;
+        function showTestimonial(n) {
+          testimonials.forEach((testimonial) =>
+            testimonial.classList.remove("active")
+          );
+          dots.forEach((dot) => dot.classList.remove("active"));
+          currentTestimonial = (n + testimonials.length) % testimonials.length;
+          testimonials[currentTestimonial].classList.add("active");
+          dots[currentTestimonial].classList.add("active");
+        }
+        function nextTestimonial() {
+          showTestimonial(currentTestimonial + 1);
+        }
+        function prevTestimonial() {
+          showTestimonial(currentTestimonial - 1);
+        }
+        // Event listeners
+        if (prevButton && nextButton) {
+          prevButton.addEventListener("click", prevTestimonial);
+          nextButton.addEventListener("click", nextTestimonial);
+        }
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", function () {
+            showTestimonial(index);
+          });
+        });
+        // Auto switch testimonials every 5 seconds
+        setInterval(nextTestimonial, 5000);
+      });
+    </script>
+    <script id="portfolioFilterScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".portfolio-filter");
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        function filterPortfolio(filterValue) {
+          portfolioItems.forEach((item) => {
+            const category = item.getAttribute("data-category");
+            if (filterValue === "all" || filterValue === category) {
+              item.classList.remove("hidden-item");
+              setTimeout(() => {
+                item.style.display = "block";
+              }, 50);
+            } else {
+              item.classList.add("hidden-item");
+              setTimeout(() => {
+                item.style.display = "none";
+              }, 500);
+            }
+          });
+        }
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filterValue = this.getAttribute("data-filter");
+            // Update active button
+            filterButtons.forEach((btn) =>
+              btn.classList.remove("active", "gradient-bg")
+            );
+            this.classList.add("active", "gradient-bg");
+            // Filter items with animation
+            filterPortfolio(filterValue);
+          });
+        });
+      });
+    </script>
+    <script id="lightboxScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxClose = document.querySelector(".lightbox-close");
+        portfolioItems.forEach((item) => {
+          const overlay = item.querySelector(".portfolio-overlay");
+          const img = item.querySelector("img");
+          overlay.addEventListener("click", function () {
+            lightboxImg.src = img.src;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          });
+        });
+        lightboxClose.addEventListener("click", function () {
+          lightbox.style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
+      });
+    </script>
+    <script id="animationScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(".animate-fade-in");
+        function checkVisibility() {
+          animatedElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add("visible");
+            }
+          });
+        }
+        // Check on load
+        checkVisibility();
+        // Check on scroll
+        window.addEventListener("scroll", checkVisibility);
+      });
+    </script>
+    <script id="smoothScrollScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              const mobileMenu = document.getElementById("mobile-menu");
+              if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+              }
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
