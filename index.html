@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PEKU - Nhiếp ảnh gia chuyên nghiệp</title>
+    <title>ThuongK152 - Nhiếp ảnh gia chuyên nghiệp</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
@@ -254,11 +254,16 @@
   <body>
     <div id="lightbox" class="lightbox">
       <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" src="" alt="Lightbox image" />
+      <img id="lightbox-img" src="" alt="Lightbox image" class="hidden" />
+      <div id="video-container" class="hidden max-w-4xl w-full">
+        <video id="lightbox-video" class="w-full rounded-lg" controls>
+          <source src="" type="video/mp4" />
+        </video>
+      </div>
     </div>
     <header class="sticky-header py-4 px-6 md:px-12">
       <div class="container mx-auto flex justify-between items-center">
-        <a href="#" class="text-3xl font-['Pacifico'] gradient-text">PEKU</a>
+        <a href="#" class="text-3xl font-['Pacifico'] gradient-text">ThuongK152</a>
         <nav class="hidden md:flex space-x-8">
           <a
             href="#home"
@@ -333,26 +338,17 @@
       <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div class="animate-fade-in">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Xin chào, tôi là <span class="gradient-text">Piku</span>
+            Xin chào, <span class="gradient-text">Thương</span> đây
           </h1>
           <h2 class="text-xl md:text-2xl text-gray-300 mb-8">
             Nhiếp ảnh gia chuyên nghiệp
           </h2>
           <p class="text-gray-400 mb-8 max-w-lg">
-            Tôi chuyên chụp ảnh cưới, phong cảnh và sự kiện với hơn 17 năm kinh
-            nghiệm. Mỗi bức ảnh là một câu chuyện, và tôi muốn kể câu chuyện của
-            bạn qua ống kính của mình.
+            Tôi cung cấp dịch vụ quay phim, dựng video chuyên nghiệp, sáng tạo
+            nội dung theo yêu cầu. Phù hợp cho cá nhân, doanh nghiệp cần video
+            quảng cáo, giới thiệu sản phẩm, sự kiện hay truyền thông mạng xã
+            hội.
           </p>
-          <div class="flex flex-wrap gap-8 mb-10">
-            <div>
-              <h3 class="text-3xl font-bold gradient-text">200+</h3>
-              <p class="text-gray-400">Dự án hoàn thành</p>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold gradient-text">17+</h3>
-              <p class="text-gray-400">Năm kinh nghiệm</p>
-            </div>
-          </div>
           <a
             href="#contact"
             class="inline-block gradient-bg text-white py-3 px-8 rounded-button font-medium transition-transform duration-300 hover:shadow-lg hover:scale-105 whitespace-nowrap"
@@ -365,8 +361,8 @@
               class="absolute inset-0 gradient-bg opacity-20 blur-xl rounded-full"
             ></div>
             <img
-              src="https://readdy.ai/api/search-image?query=professional%20male%20photographer%20in%20his%2030s%2C%20Asian%2C%20holding%20a%20camera%2C%20portrait%20photo%2C%20dark%20background%20with%20purple%20and%20red%20lighting%2C%20high%20quality%2C%20professional%20photo%2C%20dramatic%20lighting&width=600&height=800&seq=1&orientation=portrait"
-              alt="Piku - Nhiếp ảnh gia"
+              src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/387796668_1822775251454042_7467824697106655888_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHRf1FgkD4ED7whMdOffaTVXOl4ADslKp1c6XgAOyUqnf10bAx31IVmxAqSFN_eO57RFV6LX0wrrWHNFU1QtU4z&_nc_ohc=pVe7pDl8xaMQ7kNvwFDfQFZ&_nc_oc=AdldYax2mqiNjnBqUItzMMBlKE8LmG2ji9Un6k6sDUrZPazNWPba756bZQHLxNZRroILBWL75EmTMABNts3o0oJ3&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=8OZii5qx1jByyISzeaC43A&oh=00_AfMuxd8Xi7ikp57LrJrYxItAzsgXrZjgwusKh7CHIoA1VQ&oe=68589C7F"
+              alt="Thuong - Nhiếp ảnh gia"
               class="relative z-10 w-full h-auto rounded-2xl object-cover object-top shadow-2xl"
             />
           </div>
@@ -377,11 +373,12 @@
       <div class="container mx-auto">
         <div class="text-center mb-16 animate-fade-in">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Dịch vụ nhiếp ảnh <span class="gradient-text">chuyên nghiệp</span>
+            Dịch vụ quay dựng <span class="gradient-text">chuyên nghiệp</span>
           </h2>
           <p class="text-gray-400 max-w-2xl mx-auto">
-            Với trang thiết bị hiện đại và kỹ thuật chụp ảnh tiên tiến, tôi cam
-            kết mang đến những khoảnh khắc đẹp nhất trong cuộc sống của bạn.
+            Với trang thiết bị hiện đại và làm việc bàn bản , tôi cam kết mang
+            đến những thước phim giá trị thực tế cao nhất cho cá nhân doanh
+            nghiệp
           </p>
         </div>
         <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -404,7 +401,9 @@
                   <i class="ri-camera-line ri-lg"></i>
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-2">Chụp ảnh cưới</h4>
+                  <h4 class="text-lg font-medium mb-2">
+                    Quay dựng sản xuất nội dung truyền thông
+                  </h4>
                   <p class="text-gray-400">
                     Lưu giữ khoảnh khắc hạnh phúc nhất trong ngày trọng đại của
                     bạn với phong cách độc đáo và sáng tạo.
@@ -418,7 +417,9 @@
                   <i class="ri-video-line ri-lg"></i>
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-2">Quay phim cưới</h4>
+                  <h4 class="text-lg font-medium mb-2">
+                    Quay dựng sản xuất nội dung truyền hình
+                  </h4>
                   <p class="text-gray-400">
                     Ghi lại từng khoảnh khắc xúc động trong ngày cưới của bạn
                     với chất lượng hình ảnh 4K sắc nét.
@@ -432,7 +433,9 @@
                   <i class="ri-image-line ri-lg"></i>
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-2">Chụp ảnh sự kiện</h4>
+                  <h4 class="text-lg font-medium mb-2">
+                    Quay dựng sản xuất nội dung cá nhân hóa
+                  </h4>
                   <p class="text-gray-400">
                     Ghi lại những khoảnh khắc quan trọng trong các sự kiện đặc
                     biệt của cá nhân và doanh nghiệp.
@@ -471,31 +474,31 @@
               class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
               data-filter="wedding"
             >
-              Ảnh cưới
+              MV ca nhạc
             </button>
             <button
               class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
               data-filter="event"
             >
-              Sự kiện
+              Phóng sự
             </button>
             <button
               class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
               data-filter="portrait"
             >
-              Chân dung
+              TVC
             </button>
             <button
               class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
               data-filter="landscape"
             >
-              Phong cảnh
+              TikTok
             </button>
             <button
               class="portfolio-filter py-2 px-6 rounded-full border border-gray-700 text-white hover:gradient-bg transition-all duration-300 whitespace-nowrap"
               data-filter="culture"
             >
-              Văn hóa
+              Sự kiện
             </button>
           </div>
         </div>
@@ -503,86 +506,533 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in"
         >
           <div class="portfolio-item" data-category="wedding">
-            <img
-              src="https://readdy.ai/api/search-image?query=beautiful%20wedding%20photography%2C%20elegant%20couple%20in%20traditional%20Vietnamese%20wedding%20attire%2C%20romantic%20moment%2C%20professional%20photography%2C%20dark%20background%20with%20purple%20and%20red%20accent%20lighting&width=600&height=400&seq=3&orientation=landscape"
-              alt="Ảnh cưới"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+            <div class="relative w-full h-64" data-category="wedding">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
               >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FDEMO_1.mp4?alt=media&token=af1fc4ff-8d8c-4093-baa9-b8f9424c8aef"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="event">
-            <img
-              src="https://readdy.ai/api/search-image?query=corporate%20event%20photography%2C%20business%20conference%2C%20professional%20setting%2C%20people%20networking%2C%20high%20quality%20photography%2C%20dark%20background%20with%20subtle%20lighting&width=600&height=400&seq=4&orientation=landscape"
-              alt="Sự kiện"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
-              >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="portrait">
-            <img
-              src="https://readdy.ai/api/search-image?query=artistic%20portrait%20photography%2C%20beautiful%20Vietnamese%20woman%2C%20dramatic%20lighting%2C%20professional%20studio%20portrait%2C%20dark%20background%20with%20purple%20accent%20lighting&width=600&height=400&seq=5&orientation=landscape"
-              alt="Chân dung"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
-              >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="landscape">
-            <img
-              src="https://readdy.ai/api/search-image?query=breathtaking%20Vietnamese%20landscape%20photography%2C%20Ha%20Long%20Bay%20at%20sunset%2C%20dramatic%20sky%2C%20professional%20photography%20with%20vibrant%20colors&width=600&height=400&seq=6&orientation=landscape"
-              alt="Phong cảnh"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
-              >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="culture">
-            <img
-              src="https://readdy.ai/api/search-image?query=Vietnamese%20cultural%20photography%2C%20traditional%20festival%2C%20colorful%20costumes%2C%20people%20celebrating%2C%20professional%20documentary%20photography&width=600&height=400&seq=7&orientation=landscape"
-              alt="Văn hóa"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
-              >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
               </div>
             </div>
           </div>
           <div class="portfolio-item" data-category="wedding">
-            <img
-              src="https://readdy.ai/api/search-image?query=modern%20Vietnamese%20wedding%20photography%2C%20stylish%20couple%2C%20outdoor%20wedding%20ceremony%2C%20professional%20photography%20with%20artistic%20composition&width=600&height=400&seq=8&orientation=landscape"
-              alt="Ảnh cưới hiện đại"
-              class="w-full h-64 object-cover object-top rounded-lg"
-            />
-            <div class="portfolio-overlay rounded-lg">
-              <div
-                class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+            <div class="relative w-full h-64" data-category="wedding">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
               >
-                <i class="ri-zoom-in-line ri-lg text-white"></i>
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fg%E1%BB%8Di%20t%C3%AAn%20em.mp4?alt=media&token=514199d7-7178-47e4-8efd-b6a6540f9198"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="wedding">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fmv%20g%E1%BB%8Di%20t%C3%AAn%20em.mp4?alt=media&token=c67bd985-4bb1-44a6-8712-ce91251e69cc"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="wedding">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fmv%20gi%E1%BB%9D%20th%C3%AC.mp4?alt=media&token=33cb3641-36b0-4872-afeb-56bea706f0ee"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="event">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2F35.%20l%C3%AA%20v%C4%83n%20th%C6%B0%C6%A1ng%20-%20ch%E1%BA%A1m%20di%20s%E1%BA%A3n.mp4?alt=media&token=cdc726f7-f82b-4128-a252-1213c285d698"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="event">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FB%E1%BA%A2O%20QU%E1%BA%A2N%20M%E1%BB%A8T%20.mp4?alt=media&token=b1dea50e-74e8-4cb0-b230-a5b4e361beca"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="event">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fph%C3%B3ng%20s%E1%BB%B1%20h%C3%A0%20nam%20final.mp4?alt=media&token=5001dc3a-1b26-484d-8957-e40ac4161826"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="portfolio-item" data-category="portrait">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fmv%20gi%E1%BB%9D%20th%C3%AC.mp4?alt=media&token=33cb3641-36b0-4872-afeb-56bea706f0ee"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="portfolio-item" data-category="portrait">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Ftvc%20kh%C3%B3a%20chuy%C3%AAn%20nghi%E1%BB%87p%20s%E1%BB%ADa%20slogo%20cu%E1%BB%91i.mp4?alt=media&token=62d71f39-0b2a-420b-aa46-49d1d7c9cad5"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="portrait"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Ftvc%20s%E1%BA%A3n%20ph%E1%BA%A9m%20.mp4?alt=media&token=7d65f608-e7cf-4072-a96c-11c3b4eec1b3"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="portrait"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FTVC%20M%E1%BB%A9t-%20%20c%C3%B3%20logo.mp4?alt=media&token=3a8f5cd9-c449-4538-8fed-3b7359dcd510"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="portrait"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FTVC%20b%C3%A1n%20kh%C3%B3a%20h%E1%BB%8Dc%20-%20%C4%90%C3%83%20S%E1%BB%ACA%20%20CU%E1%BB%90I%20C%C3%99NG%20.mp4?alt=media&token=034a3962-9ac1-48c9-b323-faaf11197d1f"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="landscape"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fh%E1%BB%97%20tr%E1%BB%A3%20nh%E1%BA%ADn%20m%E1%BA%ABu.mp4?alt=media&token=1fe55bea-53d4-4397-afa8-3b7cec57b004"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="landscape"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fl%C6%B0u%20%C3%BD%20%C4%91%E1%BB%83%20c%E1%BB%91c%20tr%C3%A0%20chanh%20chu%E1%BA%A9n%20v%E1%BB%8B%20.mp4?alt=media&token=9f1f9521-7a33-4394-90de-686a73a3c971"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="landscape"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FT%E1%BA%A0I%20SAO%20%C4%90%C6%AF%E1%BB%A2C%20CH%E1%BB%A6%20QU%C3%81N%20TIN%20D%C3%99NG%20.mp4?alt=media&token=e2ce93e0-1e96-4ea3-88d9-2cc8a3d47f53"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="portfolio-item"
+            data-category="landscape"
+            data-type="video"
+          >
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                autoplay
+                muted
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FHV%20kho%C3%A1%20chuy%C3%AAn%20nghi%E1%BB%87p%206.1%20chia%20s%E1%BA%BB.mp4?alt=media&token=d48c7c3b-7c7d-4040-b75a-199821459132"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="culture" data-type="video">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                poster="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Ftrailer%20s%E1%BB%ADa%20m%E1%BB%9Bi%20.mp4?alt=media&token=ee3e9f45-5f54-4e58-98e6-d319cd1cb668"
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Ftrailer%20s%E1%BB%ADa%20m%E1%BB%9Bi%20.mp4?alt=media&token=ee3e9f45-5f54-4e58-98e6-d319cd1cb668"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="culture" data-type="video">
+            <div class="relative w-full h-64">
+              <video
+                class="w-full h-full object-cover object-top rounded-lg"
+                poster="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FPh%E1%BB%8Fng%20v%E1%BA%A5n%20h%E1%BB%8Dc%20vi%C3%AAn%20Kho%C3%A1%20h%E1%BB%8Dc%20mi%E1%BB%85n%20ph%C3%AD.mp4?alt=media&token=bfad76c7-7d0d-4fa6-b19e-b2a8532e12f0"
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FPh%E1%BB%8Fng%20v%E1%BA%A5n%20h%E1%BB%8Dc%20vi%C3%AAn%20Kho%C3%A1%20h%E1%BB%8Dc%20mi%E1%BB%85n%20ph%C3%AD.mp4?alt=media&token=bfad76c7-7d0d-4fa6-b19e-b2a8532e12f0"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer hover:bg-opacity-30 transition-all duration-300"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+              </div>
+              <div class="portfolio-overlay rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full cursor-pointer"
+                >
+                  <i class="ri-play-circle-line ri-lg text-white"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -593,42 +1043,62 @@
       <div class="container mx-auto">
         <div class="text-center mb-16 animate-fade-in">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Bộ sưu tập <span class="gradient-text">ảnh cưới</span>
+            Bộ sưu tập <span class="gradient-text">MV ca nhạc</span>
           </h2>
           <p class="text-gray-400 max-w-2xl mx-auto">
-            Những khoảnh khắc đẹp nhất trong ngày trọng đại của các cặp đôi.
+            Những thước phim chạm tới trái tim và cảm xúc của bạn.
           </p>
         </div>
         <div
           class="relative h-[500px] max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl animate-fade-in"
         >
           <div class="slide active">
-            <img
-              src="https://readdy.ai/api/search-image?query=romantic%20Vietnamese%20wedding%20photography%2C%20couple%20in%20traditional%20ao%20dai%2C%20beautiful%20garden%20setting%2C%20professional%20photography%20with%20soft%20lighting&width=1000&height=600&seq=9&orientation=landscape"
-              alt="Ảnh cưới 1"
-              class="w-full h-full object-cover object-top"
-            />
+            <video
+              class="w-full h-full object-cover object-top rounded-lg"
+              autoplay
+              muted
+            >
+              <source
+                src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2FDEMO_1.mp4?alt=media&token=af1fc4ff-8d8c-4093-baa9-b8f9424c8aef"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <div class="slide">
-            <img
-              src="https://readdy.ai/api/search-image?query=elegant%20Vietnamese%20wedding%20photography%2C%20couple%20in%20western%20wedding%20attire%2C%20luxury%20venue%2C%20professional%20photography%20with%20dramatic%20lighting&width=1000&height=600&seq=10&orientation=landscape"
-              alt="Ảnh cưới 2"
-              class="w-full h-full object-cover object-top"
-            />
+            <video
+              class="w-full h-full object-cover object-top rounded-lg"
+              autoplay
+              muted
+            >
+              <source
+                src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fg%E1%BB%8Di%20t%C3%AAn%20em.mp4?alt=media&token=514199d7-7178-47e4-8efd-b6a6540f9198"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <div class="slide">
-            <img
-              src="https://readdy.ai/api/search-image?query=artistic%20Vietnamese%20pre-wedding%20photography%2C%20couple%20in%20stylish%20outfits%2C%20urban%20setting%2C%20professional%20photography%20with%20creative%20composition&width=1000&height=600&seq=11&orientation=landscape"
-              alt="Ảnh cưới 3"
-              class="w-full h-full object-cover object-top"
-            />
+            <video
+              class="w-full h-full object-cover object-top rounded-lg"
+              autoplay
+              muted
+            >
+              <source
+                src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fmv%20g%E1%BB%8Di%20t%C3%AAn%20em.mp4?alt=media&token=c67bd985-4bb1-44a6-8712-ce91251e69cc"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <div class="slide">
-            <img
-              src="https://readdy.ai/api/search-image?query=emotional%20Vietnamese%20wedding%20ceremony%20photography%2C%20couple%20exchanging%20vows%2C%20intimate%20moment%2C%20professional%20photography%20with%20natural%20lighting&width=1000&height=600&seq=12&orientation=landscape"
-              alt="Ảnh cưới 4"
-              class="w-full h-full object-cover object-top"
-            />
+            <video
+              class="w-full h-full object-cover object-top rounded-lg"
+              autoplay
+              muted
+            >
+              <source
+                src="https://firebasestorage.googleapis.com/v0/b/sakuranihongo-200e5.firebasestorage.app/o/Profile%2Fmv%20gi%E1%BB%9D%20th%C3%AC.mp4?alt=media&token=33cb3641-36b0-4872-afeb-56bea706f0ee"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <button
             class="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-300"
@@ -643,7 +1113,7 @@
             <i class="ri-arrow-right-s-line ri-lg"></i>
           </button>
         </div>
-        <div class="flex justify-center mt-6">
+        <!-- <div class="flex justify-center mt-6">
           <span class="dot active" data-index="0"></span>
           <span class="dot" data-index="1"></span>
           <span class="dot" data-index="2"></span>
@@ -773,16 +1243,16 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
     <section id="instagram" class="py-20 px-6 md:px-12 bg-[#222]">
       <div class="container mx-auto">
         <div class="text-center mb-16 animate-fade-in">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Theo dõi tôi trên <span class="gradient-text">Instagram</span>
+            Theo dõi tôi trên <span class="gradient-text">Facebook</span>
           </h2>
           <p class="text-gray-400 max-w-2xl mx-auto">
-            Cập nhật những tác phẩm mới nhất của tôi trên Instagram.
+            Cập nhật những tác phẩm mới nhất của tôi trên Facebook.
           </p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
@@ -797,7 +1267,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -812,7 +1282,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -827,7 +1297,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -842,7 +1312,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -857,7 +1327,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -872,7 +1342,7 @@
                 href="#"
                 class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full"
               >
-                <i class="ri-instagram-line ri-lg text-white"></i>
+                <i class="ri-facebook-line ri-lg text-white"></i>
               </a>
             </div>
           </div>
@@ -882,7 +1352,7 @@
             href="#"
             class="inline-flex items-center text-white hover:text-primary transition-colors duration-300"
           >
-            <span class="mr-2">Xem thêm trên Instagram</span>
+            <a href="https://www.facebook.com/thuong.levan.9216"  class="mr-2">Xem thêm trên Facebook</a>
             <i class="ri-arrow-right-line"></i>
           </a>
         </div>
@@ -920,7 +1390,7 @@
                 </div>
               </div>
               <p class="text-gray-300 italic">
-                "Piku đã ghi lại những khoảnh khắc tuyệt vời nhất trong ngày
+                "Thuong đã ghi lại những khoảnh khắc tuyệt vời nhất trong ngày
                 cưới của chúng tôi. Anh ấy không chỉ là một nhiếp ảnh gia tài
                 năng mà còn rất chuyên nghiệp và dễ mến. Những bức ảnh cưới của
                 chúng tôi đẹp hơn cả mong đợi. Chúng tôi sẽ luôn trân trọng
@@ -949,7 +1419,7 @@
                 </div>
               </div>
               <p class="text-gray-300 italic">
-                "Chúng tôi đã thuê Piku chụp ảnh cho sự kiện kỷ niệm 10 năm
+                "Chúng tôi đã thuê Thuong chụp ảnh cho sự kiện kỷ niệm 10 năm
                 thành lập công ty. Anh ấy đã làm việc rất chuyên nghiệp và ghi
                 lại được những khoảnh khắc quan trọng nhất của sự kiện. Chất
                 lượng ảnh tuyệt vời và được giao đúng hẹn. Chắc chắn sẽ hợp tác
@@ -978,7 +1448,7 @@
                 </div>
               </div>
               <p class="text-gray-300 italic">
-                "Tôi rất hài lòng với buổi chụp ảnh cá nhân cùng Piku. Anh ấy có
+                "Tôi rất hài lòng với buổi chụp ảnh cá nhân cùng Thuong. Anh ấy có
                 khả năng làm cho tôi cảm thấy thoải mái trước ống kính và nắm
                 bắt được những khoảnh khắc tự nhiên nhất. Những bức ảnh rất đẹp
                 và tôi đã nhận được rất nhiều lời khen khi đăng lên mạng xã hội.
@@ -1035,7 +1505,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-medium mb-1">Địa chỉ</h4>
-                  <p class="text-gray-400">123 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                  <p class="text-gray-400">Phú Đô, Nam Từ Liêm, Hà Nôi</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -1046,7 +1516,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-medium mb-1">Email</h4>
-                  <p class="text-gray-400">info@pikuphotography.com</p>
+                  <p class="text-gray-400">thuongk152s@gmail.com</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -1057,7 +1527,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-medium mb-1">Điện thoại</h4>
-                  <p class="text-gray-400">+84 123 456 789</p>
+                  <p class="text-gray-400">032 808 6247</p>
                 </div>
               </div>
             </div>
@@ -1132,6 +1602,7 @@
                     <option value="event">Chụp ảnh sự kiện</option>
                     <option value="portrait">Chụp ảnh chân dung</option>
                     <option value="product">Chụp ảnh sản phẩm</option>
+                    <option value="tiktok">Chụp ảnh sản phẩm</option>
                   </select>
                   <div
                     class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
@@ -1171,7 +1642,7 @@
             <a
               href="#"
               class="text-3xl font-['Pacifico'] gradient-text mb-4 inline-block"
-              >PEKU</a
+              >ThuongK152</a
             >
             <p class="text-gray-400 mb-6">
               Chuyên cung cấp dịch vụ chụp ảnh chuyên nghiệp với hơn 17 năm kinh
@@ -1290,16 +1761,16 @@
               <li class="flex items-start">
                 <i class="ri-map-pin-line mr-2 mt-1"></i>
                 <span class="text-gray-400"
-                  >123 Nguyễn Huệ, Quận 1, TP.HCM</span
+                  >Phú Đô, Nam Từ Liêm, Hà Nôi</span
                 >
               </li>
               <li class="flex items-start">
                 <i class="ri-mail-line mr-2 mt-1"></i>
-                <span class="text-gray-400">info@pikuphotography.com</span>
+                <span class="text-gray-400">thuongk152s@gmail.com</span>
               </li>
               <li class="flex items-start">
                 <i class="ri-phone-line mr-2 mt-1"></i>
-                <span class="text-gray-400">+84 123 456 789</span>
+                <span class="text-gray-400">032 808 6247</span>
               </li>
               <li class="flex items-start">
                 <i class="ri-time-line mr-2 mt-1"></i>
@@ -1312,7 +1783,7 @@
           class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p class="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 PEKU. Tất cả các quyền được bảo lưu.
+            © 2025 ThuongK152. Tất cả các quyền được bảo lưu.
           </p>
           <div class="flex space-x-6">
             <a
@@ -1474,25 +1945,54 @@
         const portfolioItems = document.querySelectorAll(".portfolio-item");
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxVideo = document.getElementById("lightbox-video");
+        const videoContainer = document.getElementById("video-container");
         const lightboxClose = document.querySelector(".lightbox-close");
+        function closeLightbox() {
+          lightbox.style.display = "none";
+          document.body.style.overflow = "auto";
+          lightboxVideo.pause();
+          lightboxVideo.currentTime = 0;
+        }
         portfolioItems.forEach((item) => {
           const overlay = item.querySelector(".portfolio-overlay");
-          const img = item.querySelector("img");
+          const itemType = item.getAttribute("data-type");
           overlay.addEventListener("click", function () {
-            lightboxImg.src = img.src;
+            if (itemType === "video") {
+              const video = item.querySelector("video");
+              lightboxVideo.src = video.querySelector("source").src;
+              lightboxImg.classList.add("hidden");
+              videoContainer.classList.remove("hidden");
+            } else {
+              const img = item.querySelector("img");
+              lightboxImg.src = img.src;
+              lightboxImg.classList.remove("hidden");
+              videoContainer.classList.add("hidden");
+            }
             lightbox.style.display = "flex";
             document.body.style.overflow = "hidden";
           });
         });
-        lightboxClose.addEventListener("click", function () {
-          lightbox.style.display = "none";
-          document.body.style.overflow = "auto";
-        });
+        lightboxClose.addEventListener("click", closeLightbox);
         lightbox.addEventListener("click", function (e) {
           if (e.target === lightbox) {
-            lightbox.style.display = "none";
-            document.body.style.overflow = "auto";
+            closeLightbox();
           }
+        });
+        const playButtons = document.querySelectorAll(
+          '.portfolio-item[data-type="video"] .absolute'
+        );
+        playButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const video =
+              this.closest(".portfolio-item").querySelector("video");
+            lightboxVideo.src = video.querySelector("source").src;
+            lightboxImg.classList.add("hidden");
+            videoContainer.classList.remove("hidden");
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          });
         });
       });
     </script>
